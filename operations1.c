@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   operations1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/17 11:33:09 by ymartiro          #+#    #+#             */
-/*   Updated: 2024/07/17 11:33:12 by ymartiro         ###   ########.fr       */
+/*   Created: 2024/07/17 13:43:57 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/07/17 13:44:00 by ymartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "push_swap.h"
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-typedef struct s_list
+void	sa(stack_node *a)
 {
-	int				data;
-	struct s_list	*link;
-}	stack_node;
+    stack_node  *temp;
+    stack_node  *temp_head;
+    temp = a -> link;
+    temp_head = a;
 
-
-void		push(stack_node **st, int data);
-void		print(stack_node *st);
-int			ft_lstsize(stack_node *lst);
-
-// Operations
-void	sa(stack_node *a);
-
-#endif
+    a -> link = a -> link -> link;
+    temp -> link = temp_head;
+    a = temp;
+}
