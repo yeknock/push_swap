@@ -12,24 +12,14 @@
 
 #include "push_swap.h"
 
-
-int main(void)
+int main(int argc, char **argv)
 {
-    stack_node *a = NULL;
-    stack_node *b = NULL;
-    push(&a, 5);
-    push(&a, 12);
-    push(&a, 1);
-    push(&a, 9);
-    push(&a, 988);
+    if (argc >= 2)
+    {
 
+    }
 
-    print(a);
-
-    sa(a);
-    printf("\n\n");
-
-    print(a);
 
     return 0;
 }
+
