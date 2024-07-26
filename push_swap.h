@@ -12,6 +12,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
+#include <unistd.h>
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -20,25 +22,31 @@ typedef struct s_list
 {
 	int				data;
 	struct s_list	*next;
-}	stack_node;
+}	t_stack;
 
-void	push(stack_node **st, int data);
-void	print(stack_node **st);
-int		ft_atoi(const char *str);
-// Swap Operations
-void	sa(stack_node **a);
-void	sb(stack_node **b);
-void	ss(stack_node **a, stack_node **b);
-// Push Operations
-void	pa(stack_node **a, stack_node **b);
-void	pb(stack_node **a, stack_node **b);
-// Rotate Operations
-void	ra(stack_node **a);
-void	rb(stack_node **b);
-void	rr(stack_node **a, stack_node **b);
-// Rotate-Reverse Operations
-void	rra(stack_node **a);
-void	rrb(stack_node **b);
-void	rrr(stack_node **a, stack_node **b);
+void		print(t_stack **st);
+size_t		ft_strlen(const char *str);
+char		*ft_substr(char *s, unsigned int start, size_t len);
+char		*ft_strdup(const char *str);
+char		*ft_strchr(char *str, int c);
+long int	ft_atoi(char *str);
+void		ft_lstadd_back(t_stack **lst, int data);
+t_stack		*ft_lstnew(int data);
+void		get_number_to_stack(char *str, t_stack **st);
+void		check_valid_chars(char *str);
+void		overlapping_case(t_stack **st);
+
+// Operations
+void	sa(t_stack **a);
+void	sb(t_stack **b);
+void	ss(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **a, t_stack **b);
+void	ra(t_stack **a);
+void	rb(t_stack **b);
+void	rr(t_stack **a, t_stack **b);
+void	rra(t_stack **a);
+void	rrb(t_stack **b);
+void	rrr(t_stack **a, t_stack **b);
 
 #endif

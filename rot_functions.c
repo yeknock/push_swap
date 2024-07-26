@@ -1,10 +1,12 @@
 #include "push_swap.h"
 
-void	ra(stack_node **a)
+void	ra(t_stack **a)
 {
-	stack_node	*temp_first;
-	stack_node	*t;
+	t_stack	*temp_first;
+	t_stack	*t;
 
+	if (!a || !(*a))
+		return ;
 	temp_first = (*a);
 	t = (*a);
 	(*a) = (*a) -> next;
@@ -12,13 +14,16 @@ void	ra(stack_node **a)
 		t = t -> next;
 	t -> next = temp_first;
 	temp_first -> next = NULL;
+	write(1, "ra\n", 3);
 }
 
-void	rb(stack_node **b)
+void	rb(t_stack **b)
 {
-	stack_node	*temp_first;
-	stack_node	*t;
+	t_stack	*temp_first;
+	t_stack	*t;
 
+	if (!b || !(*b))
+		return ;
 	temp_first = (*b);
 	t = (*b);
 	(*b) = (*b) -> next;
@@ -26,10 +31,12 @@ void	rb(stack_node **b)
 		t = t -> next;
 	t -> next = temp_first;
 	temp_first -> next = NULL;
+	write(1, "rb\n", 3);
 }
 
-void	rr(stack_node **a, stack_node **b)
+void	rr(t_stack **a, t_stack **b)
 {
 	ra(a);
 	rb(b);
+	write(1, "rr\n", 3);
 }

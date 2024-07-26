@@ -12,17 +12,13 @@
 
 #include "push_swap.h"
 
-void	sa(stack_node **a)
+void	sa(t_stack **a)
 {
-	stack_node	*second;
-	int			temp_data;
+	t_stack	*second;
+	int		temp_data;
 
-	if (*a == NULL)
-	{
-		printf("Error\n");
-		exit(1);
-	}
-
+	if (!(*a) || !a)
+		return ;
 	second = (*a) -> next;
 	if (second == NULL)
 		return ;
@@ -31,20 +27,18 @@ void	sa(stack_node **a)
 		temp_data = (*a) -> data;
 		(*a) -> data = second -> data;
 		second -> data = temp_data;
+		write(1, "sa\n", 3);
 	}
 }
 
 
-void	sb(stack_node **b)
+void	sb(t_stack **b)
 {
-	stack_node	*second;
-	int			temp_data;
+	t_stack	*second;
+	int		temp_data;
 
-	if (*b == NULL)
-	{
-		printf("Error\n");
-		exit(1);
-	}
+	if (!(*b) || !b)
+		return ;
 
 	second = (*b) -> next;
 	if (second == NULL)
@@ -54,12 +48,14 @@ void	sb(stack_node **b)
 		temp_data = (*b) -> data;
 		(*b) -> data = second -> data;
 		second -> data = temp_data;
+		write(1, "sb\n", 3);
 	}
 }
 
 
-void	ss(stack_node **a, stack_node **b)
+void	ss(t_stack **a, t_stack **b)
 {
 	sa(a);
 	sb(b);
+	write(1, "ss\n", 3);
 }
