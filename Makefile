@@ -1,23 +1,24 @@
+NAME = push_swap
+SRCS = $(shell find . -name '*.c')
+OBJS = $(SRCS:.c=.o)
 CC = cc
 FLAGS = -Wall -Wextra -Werror
-SOURCES = main.c push_functions.c rot_functions.c rot_rev_functions.c swap_functions.c utils.c validation.c libft_files/ft_atoi.c libft_files/ft_strchr.c libft_files/ft_strdup.c libft_files/ft_strlen.c libft_files/ft_substr.c
-OBJECTS = $(SOURCES:.c=.o)
-NAME = push_swap
+RM = rm -rf
 
-all: $(NAME)
+all : $(NAME)
 
-%.o: %.c Makefile push_swap.h
+%.o : %.c Makefile push_swap.h
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(NAME):
-	$(CC) $(FLAGS) $(SOURCES) -o $(NAME)
+$(NAME) : $(OBJS)
+	$(CC) $(FLAGS) -o $(NAME) $(OBJS)
 
-clean:
-	rm -f $(OBJECTS)
+clean :
+	$(RM) $(OBJS)
 
-fclean: clean
-	rm -f ($NAME)
+fclean : clean
+	$(RM) $(NAME)
 
-re: fclean all
+re : fclean all
 
-.PHONY: $(NAME) all clean fclean re
+.PHONY : all clean fclean re

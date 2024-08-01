@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	rra(t_stack **a)
+void	rra(t_stack **a, int flag)
 {
 	t_stack	*temp_last;
 	t_stack	*t;
@@ -14,10 +14,11 @@ void	rra(t_stack **a)
 	t -> next = NULL;
 	temp_last -> next = (*a);
 	(*a) = temp_last;
-	write(1, "rra\n", 4);
+	if (flag == 1)
+		write(1, "rra\n", 4);
 }
 
-void	rrb(t_stack **b)
+void	rrb(t_stack **b, int flag)
 {
 	t_stack	*temp_last;
 	t_stack	*t;
@@ -31,12 +32,13 @@ void	rrb(t_stack **b)
 	t -> next = NULL;
 	temp_last -> next = (*b);
 	(*b) = temp_last;
-	write(1, "rrb\n", 4);
+	if (flag == 1)
+		write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b, int flag)
 {
-	rra(a);
-	rrb(b);
+	rra(a, flag);
+	rrb(b, flag);
 	write(1, "rrr\n", 4);
 }

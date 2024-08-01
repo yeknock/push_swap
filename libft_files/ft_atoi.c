@@ -3,7 +3,7 @@
 long int	ft_atoi(char *str)
 {
 	int	i;
-	int	return_value;
+	long	int	return_value;
 	int	sign;
 
 	i = 0;
