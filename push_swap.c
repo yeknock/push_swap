@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mmosoyan <mmosoyan@student.42yerevan.am    +#+  +:+       +#+        */
+/*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 18:56:38 by mmosoyan          #+#    #+#             */
-/*   Updated: 2024/07/27 18:33:43 by mmosoyan         ###   ########.fr       */
+/*   Created: 2024/08/01 15:49:43 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/08/01 15:52:02 by ymartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,25 +81,23 @@ int	main(int argc, char *argv[])
 	int		*arr;
 	int		*ordered;
 	t_stack	*a;
+	int		i;
 
 	if (argc > 1)
 	{
-		if (valid_symbols(argv) && valid_integer(argv))
+		i = 0;
+		while (i < argc)
 		{
-			list(&a, argv);
-			if (no_doubles(&a))
-			{
-				update(&arr, &ordered, &a);
-				solut(&a);
-			}
-			else
-				return (1);
+			get_number_to_stack(argv[i], &a);
+			i++;
+		}
+		if (overlapping_case(&a))
+		{
+			update(&arr, &ordered, &a);
+			solut(&a);
 		}
 		else
-		{
-			write(2, "Error\n", 6);
 			return (1);
-		}
 	}
 	return (0);
 }

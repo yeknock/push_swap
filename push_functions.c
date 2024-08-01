@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_functions.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/01 15:48:51 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/08/01 15:49:34 by ymartiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	pa(t_stack **a, t_stack **b)
@@ -6,7 +18,7 @@ void	pa(t_stack **a, t_stack **b)
 
 	if (!b || !(*b))
 		return ;
-	val = (*b) -> data;
+	val = (*b)->data;
 	ft_lstdelfirst(b);
 	ft_lstadd_front(a, val);
 	write(1, "pa\n", 3);
@@ -18,7 +30,7 @@ void	pb(t_stack **a, t_stack **b)
 
 	if (!a || !(*a))
 		return ;
-	val = (*a) -> data;
+	val = (*a)->data;
 	ft_lstdelfirst(a);
 	ft_lstadd_front(b, val);
 	write(1, "pb\n", 3);

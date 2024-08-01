@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   rot_rev_functions.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/01 15:55:15 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/08/01 15:57:10 by ymartiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	rra(t_stack **a, int flag)
@@ -9,7 +21,7 @@ void	rra(t_stack **a, int flag)
 		return ;
 	t = *a;
 	while (t -> next -> next != NULL)
-		t = t -> next;
+		t = t->next;
 	temp_last = t -> next;
 	t -> next = NULL;
 	temp_last -> next = (*a);
@@ -27,7 +39,7 @@ void	rrb(t_stack **b, int flag)
 		return ;
 	t = *b;
 	while (t -> next -> next != NULL)
-		t = t -> next;
+		t = t->next;
 	temp_last = t -> next;
 	t -> next = NULL;
 	temp_last -> next = (*b);

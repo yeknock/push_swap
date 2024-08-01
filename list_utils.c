@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/01 15:46:01 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/08/01 15:48:37 by ymartiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_stack	*ft_lstnew(int data)
@@ -49,13 +61,13 @@ void	ft_lstadd_front(t_stack **lst, int data)
 
 void	ft_lstdelfirst(t_stack **st)
 {
-    t_stack *temp;
+	t_stack	*temp;
 
 	if (!st || !(*st))
 		return ;
-    temp = (*st) -> next;
+	temp = (*st)->next;
 	free(*st);
-    *st = temp;
+	*st = temp;
 }
 
 int	ft_lstsize(t_stack **st)

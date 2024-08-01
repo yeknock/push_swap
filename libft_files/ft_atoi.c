@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/01 16:06:40 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/08/01 16:07:19 by ymartiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 long int	ft_atoi(char *str)
 {
-	int	i;
-	long	int	return_value;
-	int	sign;
+	int			i;
+	long int	return_value;
+	int			sign;
 
 	i = 0;
 	sign = 1;

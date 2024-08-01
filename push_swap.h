@@ -6,17 +6,17 @@
 /*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 11:33:09 by ymartiro          #+#    #+#             */
-/*   Updated: 2024/07/17 11:33:12 by ymartiro         ###   ########.fr       */
+/*   Updated: 2024/08/01 15:53:49 by ymartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <unistd.h>
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+
+# include <stdio.h>
+# include <stdlib.h>
+# include <limits.h>
+# include <unistd.h>
 
 typedef struct s_list
 {
@@ -37,15 +37,11 @@ void		ft_lstdelfirst(t_stack **st);
 int			ft_lstsize(t_stack **st);
 void		get_number_to_stack(char *str, t_stack **st);
 void		check_valid_chars(char *str);
-void		overlapping_case(t_stack **st);
+int			overlapping_case(t_stack **st);
 void		mult_space_check(char *str);
 void		min_max_err(t_stack **st);
 int			int_min_max(long int n);
 void		delete_stack(t_stack **st);
-int			*stack_to_array(t_stack **st);
-int			*ordered_arr(int *arr, int size);
-void		arr_sorintg(int *arr, int size);
-void		arr_changeto_index(int *ord, int *arr, int size);
 int			log_2(int num);
 int			ft_sqrt(int num);
 void		butterfly_sort(t_stack **a, t_stack **b);
@@ -63,6 +59,8 @@ void		sort_arr(int *ordered, int size);
 void		sort_arr_index(int *arr, int *ordered, int size);
 void		reset_list(t_stack **a, int *arr);
 int			*ft_intdup(int *arr, int size);
+void		update(int **arr, int **ordered, t_stack **a);
+void		solut(t_stack **a);
 void		sa(t_stack **a, int flag);
 void		sb(t_stack **b, int flag);
 void		ss(t_stack **a, t_stack **b, int flag);

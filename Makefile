@@ -1,9 +1,8 @@
-NAME = push_swap
-SRCS = $(shell find . -name '*.c')
-OBJS = $(SRCS:.c=.o)
 CC = cc
 FLAGS = -Wall -Wextra -Werror
-RM = rm -rf
+SRCS = $(shell find . -name '*.c')
+OBJS = $(SRCS:.c=.o)
+NAME = push_swap
 
 all : $(NAME)
 
@@ -14,10 +13,10 @@ $(NAME) : $(OBJS)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJS)
 
 clean :
-	$(RM) $(OBJS)
+	rm -rf $(OBJS)
 
 fclean : clean
-	$(RM) $(NAME)
+	rm -rf $(NAME)
 
 re : fclean all
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   validation.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/01 16:02:12 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/08/01 16:06:24 by ymartiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	check_valid_chars(char *str)
@@ -6,22 +18,23 @@ void	check_valid_chars(char *str)
 	int		i;
 
 	valid_chars = "0123456789-+ ";
-	i = 0; // invalid characters case
-	while(str[i] != '\0')
+	i = 0;
+	while (str[i] != '\0')
 	{
 		if (!ft_strchr(valid_chars, str[i]))
 		{
-			printf("Error\n");
+			write (1, "Error\n", 6);
 			exit(1);
 		}
 		i++;
 	}
-	i = 0; // more than one + or - case
-	while(str[i] != '\0')
+	i = 0;
+	while (str[i] != '\0')
 	{
-		if ((str[i] == '-' || str[i] == '+') && (str[i + 1] < 48 || str[i + 1] > 57))
+		if ((str[i] == '-' || str[i] == '+')
+			&& (str[i + 1] < 48 || str[i + 1] > 57))
 		{
-			printf("Error\n");
+			write (1, "Error\n", 6);
 			exit(1);
 		}
 		i++;
@@ -30,9 +43,9 @@ void	check_valid_chars(char *str)
 
 void	handle_err(char *str)
 {
-	if(!str)
+	if (!str)
 	{
-		printf("Error\n");
+		write (1, "Error\n", 6);
 		exit(1);
 	}
 }
@@ -40,17 +53,18 @@ void	handle_err(char *str)
 void	get_number_to_stack(char *str, t_stack **st)
 {
 	char		*temp_str;
-	long	int	temp_int;
-	int 		i;
+	long int	temp_int;
+	int			i;
 	int			start;
 
 	i = 0;
 	start = i;
 	check_valid_chars(str);
 	mult_space_check(str);
-	while(str[i] != '\0')
+	while (str[i] != '\0')
 	{
-		if((str[i] >= 48 && str[i] <= 57) && (str[i + 1] == ' ' || str[i + 1] == 0))
+		if ((str[i] >= 48 && str[i] <= 57)
+			&& (str[i + 1] == ' ' || str[i + 1] == 0))
 		{
 			temp_str = ft_substr(str, start, i - start + 1);
 			temp_int = ft_atoi(temp_str);
@@ -62,7 +76,6 @@ void	get_number_to_stack(char *str, t_stack **st)
 		}
 		i++;
 	}
-	overlapping_case(st);
 }
 
 int	int_min_max(long int n)
@@ -72,30 +85,28 @@ int	int_min_max(long int n)
 	return (1);
 }
 
-void	overlapping_case(t_stack **st)
+int	overlapping_case(t_stack **st)
 {
 	t_stack	*head;
 	t_stack	*temp;
 
 	head = *st;
 	if (!st || !(*st))
-	{
-		printf("Error\n");
-		exit(1);
-	}
-	while(head != NULL && head -> next != NULL)
+		return (0);
+	while (head != NULL && head -> next != NULL)
 	{
 		temp = head -> next;
-		while(temp != NULL)
+		while (temp != NULL)
 		{
 			if (head -> data == temp -> data)
 			{
 				delete_stack(st);
-				printf("Error\n");
-				exit(1);
+				write(1, "Error\n", 6);
+				return (0);
 			}
 			temp = temp -> next;
 		}
 		head = head -> next;
 	}
+	return (1);
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   additional_validation.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/01 15:44:45 by ymartiro          #+#    #+#             */
+/*   Updated: 2024/08/01 15:45:22 by ymartiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	mult_space_check(char *str)
@@ -9,7 +21,7 @@ void	mult_space_check(char *str)
 	{
 		if (str[i] == ' ' && str[i + 1] == ' ')
 		{
-			printf("Error\n");
+			write(1, "Error\n", 6);
 			exit(1);
 		}
 		i++;
@@ -19,6 +31,6 @@ void	mult_space_check(char *str)
 void	min_max_err(t_stack **st)
 {
 	delete_stack(st);
-	printf("Error\n");
+	write(1, "Error\n", 6);
 	exit(1);
 }

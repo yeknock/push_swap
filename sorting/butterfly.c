@@ -47,7 +47,7 @@ void	butterfly_sort(t_stack **a, t_stack **b)
 	int	size;
 
 	counter = 0;
-	size = ft_lstsize(*a);
+	size = ft_lstsize(a);
 	n = ft_sqrt(size) + log_2(size);
 	while (size != 0)
 	{
@@ -100,7 +100,7 @@ void	a_sort(t_stack **a, t_stack **b)
 	int	index;
 	int	size;
 
-	size = ft_lstsize(*b);
+	size = ft_lstsize(b);
 	while (size != 0)
 	{
 		index = find_max_indx(b);
