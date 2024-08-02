@@ -6,7 +6,7 @@
 /*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:49:43 by ymartiro          #+#    #+#             */
-/*   Updated: 2024/08/01 15:52:02 by ymartiro         ###   ########.fr       */
+/*   Updated: 2024/08/02 19:00:20 by ymartiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	main(int argc, char *argv[])
 	if (argc > 1)
 	{
 		i = 1;
-		while(i < argc)
+		while (i < argc)
 		{
 			get_number_to_stack(argv[i], &a);
 			i++;

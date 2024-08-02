@@ -1,37 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_functions.c                                   :+:      :+:    :+:   */
+/*   op_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ymartiro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mmosoyan <mmosoyan@student.42yerevan.am    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/01 15:48:51 by ymartiro          #+#    #+#             */
-/*   Updated: 2024/08/01 15:49:34 by ymartiro         ###   ########.fr       */
+/*   Created: 2024/07/19 20:22:18 by mmosoyan          #+#    #+#             */
+/*   Updated: 2024/07/26 21:15:10 by mmosoyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	pa(t_stack **a, t_stack **b)
 {
-	int	val;
+	t_stack		*tmp;
 
 	if (!b || !(*b))
 		return ;
-	val = (*b)->data;
-	ft_lstdelfirst(b);
-	ft_lstadd_front(a, val);
+	tmp = *b;
+	*b = (*b)->next;
+	tmp->next = *a;
+	*a = tmp;
 	write(1, "pa\n", 3);
 }
 
 void	pb(t_stack **a, t_stack **b)
 {
-	int	val;
+	t_stack		*tmp;
 
 	if (!a || !(*a))
 		return ;
-	val = (*a)->data;
-	ft_lstdelfirst(a);
-	ft_lstadd_front(b, val);
+	tmp = *a;
+	*a = (*a)->next;
+	tmp->next = *b;
+	*b = tmp;
 	write(1, "pb\n", 3);
 }

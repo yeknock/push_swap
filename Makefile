@@ -18,6 +18,12 @@ clean :
 fclean : clean
 	rm -rf $(NAME)
 
+test: $(NAME)
+	$(eval ARG = $(shell jot -r 5 0 2000000))
+	./push_swap $(ARG)
+	@echo -n "Instructions: "
+	@./push_swap $(ARG) | wc -l
+
 re : fclean all
 
 .PHONY : all clean fclean re

@@ -15,6 +15,6 @@
 void	min_max_err(t_stack **st)
 {
 	delete_stack(st);
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }

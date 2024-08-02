@@ -23,7 +23,7 @@ void	check_valid_chars(char *str)
 	{
 		if (!ft_strchr(valid_chars, str[i]))
 		{
-			write (1, "Error\n", 6);
+			write (2, "Error\n", 6);
 			exit(1);
 		}
 		i++;
@@ -34,7 +34,7 @@ void	check_valid_chars(char *str)
 		if ((str[i] == '-' || str[i] == '+')
 			&& (str[i + 1] < 48 || str[i + 1] > 57))
 		{
-			write (1, "Error\n", 6);
+			write (2, "Error\n", 6);
 			exit(1);
 		}
 		i++;
@@ -58,19 +58,13 @@ void	get_number_to_stack(char *str, t_stack **st)
 			j = 0;
 			while (str[i + j] != ' ' && str[i + j] != '\0')
 				j++;
-			if (j > 11)
-			{
-				delete_stack(st);
-				write(1, "Error\n", 6);
-				exit(1);
-			}
 			temp_str = ft_substr(str, i, j);
 			temp_int = ft_atoi(temp_str);
 			if (!int_min_max(temp_int))
 			{
 				free(temp_str);
 				delete_stack(st);
-				write(1, "Error\n", 6);
+				write(2, "Error\n", 6);
 				exit(1);
 			}
 			ft_lstadd_back(st, (int)temp_int);
@@ -103,7 +97,7 @@ int	overlapping_case(t_stack **st)
 			if (head -> data == temp -> data)
 			{
 				delete_stack(st);
-				write(1 ,"Error\n", 6);
+				write(2,"Error\n", 6);
 				return (0);
 			}
 			temp = temp -> next;
