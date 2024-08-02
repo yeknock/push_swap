@@ -96,6 +96,7 @@ int	main(int argc, char *argv[])
 			update(&arr, &ordered, &a);
 			solut(&a);
 		}
+		free(a);
 	}
 	return (0);
 }
