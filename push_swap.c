@@ -88,6 +88,8 @@ int	main(int argc, char *argv[])
 		i = 1;
 		while (i < argc)
 		{
+			if (argv[i][0] == '\0')
+				handle_err();
 			get_number_to_stack(argv[i], &a);
 			i++;
 		}

@@ -12,32 +12,33 @@
 
 #include "push_swap.h"
 
+void	handle_err(void)
+{
+	write (2, "Error\n", 6);
+	exit(1);
+}
+
 void	check_valid_chars(char *str)
 {
-	char	*valid_chars;
 	int		i;
 
-	valid_chars = "0123456789-+ ";
+	val_char(str);
 	i = 0;
-	while (str[i] != '\0')
-	{
-		if (!ft_strchr(valid_chars, str[i]))
-		{
-			write (2, "Error\n", 6);
-			exit(1);
-		}
-		i++;
-	}
+	while (str[i] == ' ' && str[i] != '\0')
+		++i;
+	if (!str[i])
+		handle_err();
 	i = 0;
-	while (str[i] != '\0')
+	while (str[i])
 	{
-		if ((str[i] == '-' || str[i] == '+')
-			&& (str[i + 1] < 48 || str[i + 1] > 57))
+		if (str[i] == '-' || str[i] == '+')
 		{
-			write (2, "Error\n", 6);
-			exit(1);
+			if (str[i + 1] < 48 || str[i + 1] > 57)
+				handle_err();
+			if (i != 0 && (str[i - 1] > 48 || str[i - 1] < 57))
+				handle_err();
 		}
-		i++;
+		++i;
 	}
 }
 
@@ -61,12 +62,7 @@ void	get_number_to_stack(char *str, t_stack **st)
 			temp_str = ft_substr(str, i, j);
 			temp_int = ft_atoi(temp_str);
 			if (!int_min_max(temp_int))
-			{
-				free(temp_str);
-				delete_stack(st);
-				write(2, "Error\n", 6);
-				exit(1);
-			}
+				min_max_err(temp_str, st);
 			ft_lstadd_back(st, (int)temp_int);
 			free(temp_str);
 		}
@@ -97,7 +93,7 @@ int	overlapping_case(t_stack **st)
 			if (head -> data == temp -> data)
 			{
 				delete_stack(st);
-				write(2,"Error\n", 6);
+				write(2, "Error\n", 6);
 				return (0);
 			}
 			temp = temp -> next;
