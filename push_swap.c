@@ -85,8 +85,8 @@ int	main(int argc, char *argv[])
 
 	if (argc > 1)
 	{
-		i = 0;
-		while (i < argc)
+		i = 1;
+		while(i < argc)
 		{
 			get_number_to_stack(argv[i], &a);
 			i++;
@@ -96,8 +96,6 @@ int	main(int argc, char *argv[])
 			update(&arr, &ordered, &a);
 			solut(&a);
 		}
-		else
-			return (1);
 	}
 	return (0);
 }

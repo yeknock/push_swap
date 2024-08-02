@@ -52,9 +52,9 @@ void	sb(t_stack **b, int flag)
 	}
 }
 
-void	ss(t_stack **a, t_stack **b, int flag)
+void	ss(t_stack **a, t_stack **b)
 {
-	sa(a, flag);
-	sb(b, flag);
+	sa(a, 0);
+	sb(b, 0);
 	write(1, "ss\n", 3);
 }

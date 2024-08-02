@@ -48,9 +48,9 @@ void	rrb(t_stack **b, int flag)
 		write(1, "rrb\n", 4);
 }
 
-void	rrr(t_stack **a, t_stack **b, int flag)
+void	rrr(t_stack **a, t_stack **b)
 {
-	rra(a, flag);
-	rrb(b, flag);
+	rra(a, 0);
+	rrb(b, 0);
 	write(1, "rrr\n", 4);
 }
