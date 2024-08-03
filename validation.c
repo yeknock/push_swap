@@ -35,7 +35,7 @@ void	check_valid_chars(char *str)
 		{
 			if (str[i + 1] < 48 || str[i + 1] > 57)
 				handle_err();
-			if (i != 0 && (str[i - 1] > 48 || str[i - 1] < 57))
+			if (i != 0 && (str[i - 1] > 48 && str[i - 1] < 57))
 				handle_err();
 		}
 		++i;
